@@ -1,5 +1,5 @@
 C-TAC Generator Pro
-A web-based educational platform that transforms C source code into 3-Address Code (TAC) intermediate representation, with rich visualizations and interactive learning features.
+A web-based educational pplatform that transforms C source code into 3-Address Code (TAC) intermediate representation, with rich visualizations and interactive learning features.
 Overview
 C-TAC Generator Pro makes compiler internals accessible — from source code to IR, with every step visualized and explained. No installation required; fully browser-based.
 Features
