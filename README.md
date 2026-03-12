@@ -4,7 +4,7 @@ Overview
 C-TAC Generator Pro makes compiler internals accessible — from source code to IR, with every step visualized and explained. No installation required; fully browser-based.
 Features
 
-Code Editor — Monaco-powered editor with C syntax highlighting, IntelliSense, and real-time error detection
+Code Editor — Monaco-powered editor with C syntax highighting, IntelliSense, and real-time error detection
 TAC Generation — Output in Quadruples, Triples, or SSA form
 Visualizations — AST, Control Flow Graph (CFG), memory layout, pointer chains, and call stacks
 Optimization Engine — 9 optimization passes (constant folding, dead code elimination, CSE, and more) with O0/O1/O2/Custom levels
