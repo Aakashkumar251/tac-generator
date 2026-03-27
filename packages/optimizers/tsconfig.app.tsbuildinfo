@@ -1,1 +1,0 @@
-{"root":["./src/assemblyviewer.tsx","./src/comparisonview.tsx","./src/optimizerpanel.tsx","./src/registerallocviewer.tsx","./src/stepbysteppanel.tsx","./src/assemblygenerator.ts","./src/index.ts","./src/optimizer.ts","./src/registerallocator.ts","./demo/app.tsx","./demo/main.tsx","./demo/stores/compilerstore.ts"],"version":"5.8.3"}
