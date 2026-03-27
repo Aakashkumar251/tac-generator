@@ -1,0 +1,98 @@
+# ============================================================
+# Docker Compose — Insight Builder v4.0
+#
+# Services:
+#   app         → Production Nginx serving the built app
+#   dev         → Vite dev server with hot-reload (volumes)
+#   test        → Run the full test suite once
+#   compiler    → Isolated @ctac/core-compiler tests
+#   shared      → Isolated @ctac/shared tests
+#   visualizers → Isolated @ctac/visualizers tests
+#   optimizers  → Isolated @ctac/optimizers tests
+# ============================================================
+
+services:
+  # --------------------------------------------------------
+  # Production: build & serve with Nginx
+  # --------------------------------------------------------
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ctac-app
+    ports:
+      - "3000:80"
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "-q", "http://localhost/healthz"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+
+  # --------------------------------------------------------
+  # Development: Vite dev server with live-reload
+  # --------------------------------------------------------
+  dev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: builder
+    container_name: ctac-dev
+    command: npm run dev --workspace=@ctac/app-shell -- --host 0.0.0.0
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./packages:/app/packages
+      - ./package.json:/app/package.json
+      - ./tsconfig.json:/app/tsconfig.json
+    profiles:
+      - dev
+
+  # --------------------------------------------------------
+  # Test Runner: run all workspace tests
+  # --------------------------------------------------------
+  test:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: builder
+    container_name: ctac-test
+    command: npm run test
+    profiles:
+      - test
+
+  # --------------------------------------------------------
+  # Per-Package Test / Dev Containers
+  # --------------------------------------------------------
+  compiler:
+    build:
+      context: .
+      dockerfile: packages/core-compiler/Dockerfile
+    container_name: ctac-compiler
+    profiles:
+      - packages
+
+  shared:
+    build:
+      context: .
+      dockerfile: packages/shared/Dockerfile
+    container_name: ctac-shared
+    profiles:
+      - packages
+
+  visualizers:
+    build:
+      context: .
+      dockerfile: packages/visualizers/Dockerfile
+    container_name: ctac-visualizers
+    profiles:
+      - packages
+
+  optimizers:
+    build:
+      context: .
+      dockerfile: packages/optimizers/Dockerfile
+    container_name: ctac-optimizers
+    profiles:
+      - packages

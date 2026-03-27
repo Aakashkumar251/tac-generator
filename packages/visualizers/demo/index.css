@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 225 25% 8%;
+    --foreground: 220 15% 88%;
+    --card: 225 22% 11%;
+    --card-foreground: 220 15% 88%;
+    --popover: 225 22% 11%;
+    --popover-foreground: 220 15% 88%;
+    --primary: 160 80% 48%;
+    --primary-foreground: 225 25% 5%;
+    --secondary: 225 18% 16%;
+    --secondary-foreground: 220 15% 80%;
+    --muted: 225 16% 14%;
+    --muted-foreground: 220 10% 50%;
+    --accent: 160 80% 48%;
+    --accent-foreground: 225 25% 5%;
+    --destructive: 0 72% 55%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 225 16% 18%;
+    --input: 225 16% 18%;
+    --ring: 160 80% 48%;
+    --radius: 0.5rem;
+    --surface-elevated: 225 20% 13%;
+    --surface-panel: 228 24% 9%;
+    --surface-editor: 228 30% 6%;
+    --syntax-keyword: 220 100% 72%;
+    --syntax-string: 140 60% 58%;
+    --syntax-number: 30 95% 62%;
+    --syntax-comment: 220 10% 42%;
+    --syntax-function: 45 95% 68%;
+    --syntax-type: 190 75% 62%;
+    --syntax-operator: 345 75% 68%;
+    --syntax-label: 275 65% 72%;
+    --syntax-temp: 160 80% 52%;
+    --glow-primary: 160 80% 48%;
+    --glow-intensity: 0.15;
+    --font-code: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
+    --font-ui: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-ui);
+  }
+
+  code, pre, .font-mono {
+    font-family: var(--font-code) !important;
+  }
+}
+
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: hsl(var(--background)); }
+::-webkit-scrollbar-thumb { background: hsl(var(--border)); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: hsl(var(--muted-foreground)); }

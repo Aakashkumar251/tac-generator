@@ -1,0 +1,48 @@
+# Dependencies
+node_modules
+**/node_modules
+
+# Build outputs
+dist
+**/dist
+dist-ssr
+
+# Version control
+.git
+.gitignore
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# Editor / IDE
+.vscode
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.DS_Store
+
+# Docker (prevent recursive copy)
+Dockerfile
+docker-compose.yml
+.dockerignore
+packages/*/Dockerfile
+
+# Documentation & metadata (not needed in image)
+*.md
+LICENSE
+handoff.md
+PACKAGE_GUIDE.md
+
+# Lockfiles we don't use
+bun.lockb
+
+# Local env files
+*.local
+.env*.local

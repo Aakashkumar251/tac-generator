@@ -1,0 +1,23 @@
+{
+  "files": [],
+  "references": [
+    { "path": "./packages/app-shell/tsconfig.app.json" },
+    { "path": "./packages/app-shell/tsconfig.node.json" },
+    { "path": "./packages/core-compiler/tsconfig.app.json" },
+    { "path": "./packages/visualizers/tsconfig.app.json" },
+    { "path": "./packages/shared/tsconfig.json" },
+    { "path": "./packages/optimizers/tsconfig.json" }
+  ],
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+    "noImplicitAny": false,
+    "noUnusedParameters": false,
+    "skipLibCheck": true,
+    "allowJs": true,
+    "noUnusedLocals": false,
+    "strictNullChecks": false
+  }
+}

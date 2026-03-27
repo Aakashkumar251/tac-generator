@@ -1,0 +1,10 @@
+export { OptimizerPanel } from './OptimizerPanel';
+export { RegisterAllocViewer } from './RegisterAllocViewer';
+export { AssemblyViewer } from './AssemblyViewer';
+export { ComparisonView } from './ComparisonView';
+export { StepByStepPanel } from './StepByStepPanel';
+export { runOptimizations } from './optimizer';
+export type { OptimizationResult } from './optimizer';
+export { allocateRegisters } from './registerAllocator';
+export { generateAssembly } from './assemblyGenerator';
+export type { Architecture, AssemblyLine } from './assemblyGenerator';
